@@ -1,0 +1,39 @@
+body {
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar-wrapper {
+    width: 250px;
+}
+
+#sidebar-wrapper .list-group-item {
+    border: none; /* Hilangkan garis bawah */
+    padding: 10px 15px; /* Tambahkan padding untuk tampilan yang lebih rapi */
+}
+
+#page-content-wrapper {
+    flex: 1;
+    padding: 20px;
+}
+
+@media (max-width: 767px) {
+    #sidebar-wrapper {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: 400px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        display: block;
+    }
+
+    #page-content-wrapper {
+        padding-left: 0;
+    }
+}
