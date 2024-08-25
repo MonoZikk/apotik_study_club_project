@@ -60,6 +60,15 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === true) {
                     <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username Anda" style="padding: 8px; background-color: rgba(68, 182, 86, 0.25);" required>
                 </div>
+                <?php
+                            // memeriksa apakah ada pesan kesalahan
+                            if (isset($_SESSION['error_username'])) {
+                                echo '<i class="text-danger">' . $_SESSION['error_username'] . '</i>';
+                                // hapus pesan kesalahan setelah ditampilkan
+                                unset($_SESSION['error_username']);
+                            }
+
+                            ?>
                 <div class="text-start">
                     <div class="row">
                         <div class="col-12 col-md-6">
@@ -76,10 +85,10 @@ if (isset($_SESSION['status']) && $_SESSION['status'] === true) {
                         </div>
                         <?php
                             // memeriksa apakah ada pesan kesalahan
-                            if (isset($_SESSION['error_message'])) {
-                                echo '<i class="text-danger">' . $_SESSION['error_message'] . '</i>';
+                            if (isset($_SESSION['error_password'])) {
+                                echo '<i class="text-danger">' . $_SESSION['error_password'] . '</i>';
                                 // hapus pesan kesalahan setelah ditampilkan
-                                unset($_SESSION['error_message']);
+                                unset($_SESSION['error_password']);
                             }
 
                             ?>
